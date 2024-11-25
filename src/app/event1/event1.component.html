@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>-----EVENT HANDLING-----</h1>
+  </head>
+  <body>
+    <!-- <input type="number" [(ngModel)]="num1"> <br><br>
+    {{num1}}
+    <button class="btn btn-primary" (click)="check()" >Check</button>
+    <h1>{{output}}</h1>
+    <p>-------------------------------------------</p>
 
-    <div [style]="events">
-        <!-- counter -->
-        <input type="button" value="counter" (click)="counter()" class="btn btn-danger">
-        <div>{{count}}</div>
+    <input type="number" [(ngModel)]="factNumber"><br><br>
+    <button class="btn btn-dark" (click)="fact()">Factorial</button><br><br>
+    <h1 [style.color]="solution>1000?'red':'green'" > factorial of the given Number : {{solution}}</h1>
+     -->
 
-        <p>!-------------------------------------------------------------------------------------!</p>
-        
-        <!-- advanced counter -->
-        <input type="button" value="count_up" (click)="count_up()" class="btn btn-info" style="margin-left: 20px;">
-        <input type="button" value="count_down" (click)="count_down()" class="btn btn-primary" style="margin-left: 20px;">
-        <input type="button" value="Reset" (click)="reset()" class="btn btn-danger" style="margin-left: 20px;">
-        <input type="button" value="Pre" (click)="preview()" class="btn btn-warning" style="margin-left: 20px;">
-        <div class="text-primary">{{value}}</div> 
-        <p>!-------------------------------------------------------------------------------------!</p>
 
-        <!-- box color changing --> 
-        <div>
-        <input type="button" value="Red" (click)="change1('red')" class="btn btn-danger ">
-        <input type="button" value="Green" (click)="change1('green')" class="btn c1">
-        <input type="button" value="Blue" (click)="change1('blue')" class="btn btn-primary">
-        <div [style]="boxstyle" [style.background-color]="color">
-            {{color}}
-        </div>
-        <br><br>
 
-        <!-- opacity changing --> 
-        <div>
-            <input type="button" value="blue" (click)="blue()" class="inp1">
-            <input type="button" value="red" (click)="red()" class="inp1">
-            <input type="button" value="green" (click)="green()" class="inp1"><br>
 
-            <input type="button" value="opacity_up" (click)="opacity_up()" class="inp1">
-            <input type="button" value="opacity_down" (click)="opacity_down()" class="inp1">
-            <input type="button" value="Max" (click)="opacity_Max()" class="inp1">
-            <input type="button" value="Min" (click)="opacity_Min()" class="inp1">
-            
-            <div [style]="boxstyle" [style.opacity]="op" [style.background-color]="co"></div>
-        </div>
-        <!-- end of opacity changing code -->
 
-        </div>
-        <!-- mouse hover -->
-        <div (mouseenter)="mouseevent1()" (mouseleave)="mouseevent2()" [style]="hover" [style.background-color]="bg1"></div><br>
-    </div>
-</body>
+
+
+    <div [style]="divstyle" [style.background-color]="bgColor" [hidden]="hidevalue" ></div>
+
+    <input type="button" value="Green" (click)="changeDivColor('green')" [hidden]="hidevalue" />
+    <input type="button" value="Blue" (click)="changeDivColor('blue')" [hidden]="hidevalue" />
+    <input type="button" value="Red"(click)="changeDivColor('red')" [hidden]="hidevalue" /> <br>
+
+    <input type="button" value="Show" (click)="showDiv(false)" [hidden]="hiding()">
+    <input type="button" value="Hide" (click)="showDiv(true)" [hidden]="hidevalue">
+  </body>
 </html>

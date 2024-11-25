@@ -6,37 +6,49 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="reactive">
+        
     <h1>Reactive forms</h1>
     <!-- creaating a form directive to connect with the ts to template forms using formGroup -->
 
     <form [formGroup]="registraionform" (ngSubmit)="onsubmitted()">
 
-        <input type="text" name="firstname" class="form-control" placeholder="First name" formControlName="firstname"
-        [ngClass]="{'is-invalid':submit&&functioncall.firstname.errors}">
+        <input type="text" name="firstname" class="form-control" placeholder="First name" formControlName="firstname" [ngClass]="{'is-invalid':submit&&functioncall.firstname.errors}">
 
             <div *ngIf="submit&&functioncall.firstname.errors"  class="text-danger">Firstname is required</div>
 
-        <input type="text" name="phone" class="form-control" placeholder="Phone" formControlName="phone" pattern="[5-9]{1}[0-9]{9}"
+        <input type="text" name="phone" class="form-control" placeholder="Phone" formControlName="phone" 
         [ngClass]="{'is-invalid':submit&&functioncall.phone.errors}">
-        <div class="invalid-feedback" *ngIf="submit&&functioncall.phone.errors">
-            <div *ngIf="functioncall.phone.errors">Phone number is required</div>
+        
+        <div class="invalid-feedback" *ngIf="submit && functioncall.phone.errors&&functioncall.phone.errors['required']">
+            <div *ngIf="functioncall.phone.errors?.['required']">Phone number is required</div>
+            <div *ngIf="functioncall.phone.errors?.['pattern']">Invalid phone number format</div>
         </div>
         
         <input type="email" name="email" class="form-control" placeholder="Email" formControlName="email"
         [ngClass]="{'is-invalid':submit&&functioncall.email.errors}">
         <div class="invalid-feedback" *ngIf="submit&&functioncall.email.errors">
-            <div *ngIf="functioncall.email.errors">Email is required</div>
+            <div *ngIf="functioncall.email.errors?.['required']">Email is required</div>
+            <div *ngIf="functioncall.email.errors?.['email']">Invalid Email format</div>
         </div>
-
-        <input type="password" name="password" class="form-control" placeholder="password" formControlName="password"
-        [ngClass]="{'is-invalid':submit&&functioncall.email.errors}">
+        
+        <input type="password" name="password" class="form-control" placeholder="Password" formControlName="password"
+        [ngClass]="{'is-invalid':submit&&functioncall.password.errors}">
         <div class="invalid-feedback" *ngIf="submit&&functioncall.password.errors">
-            <div *ngIf="functioncall.password.errors">Password is required</div>
+            <div *ngIf="functioncall.password.errors?.['required']">Password is required</div>
+            <div *ngIf="functioncall.password.errors?.['minlength']">Password length should be minimum 8 letteres</div>
+            <div *ngIf="functioncall.password.errors?.['maxlength']">Password length should be less than 10 digits</div>
         </div>
-
+        Gender : <br>
+        Male : <input type="radio" formControlName="gender" value="male" class="form-check-input">
+        Female : <input type="radio" formControlName="gender" value="female" class="form-check-input">
+        Others : <input type="radio" formControlName="gender" value="others" class="form-check-input">
+        <div class="invalid-feedback" *ngIf="submit&&functioncall.gender.errors" >Gender selection is required</div>
+        
         <div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+    </div>
 </body>
 </html>

@@ -15,7 +15,19 @@ export class TemplateDrivenFormComponent implements OnInit {
     phone:""
   }
 
-  onsubmit(){
+
+  
+  signin={
+    email:"",
+    password:"",
+    confirm_password:""
+  }
+  signinSubmit(){}
+
+
+
+
+  onsubmit(){   
 
   }
   constructor() { }

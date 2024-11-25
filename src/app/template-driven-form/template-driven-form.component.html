@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,88 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Template Driven Form</h1><br>
-    <div style="width: 300px; text-align: center; margin-left: 130px;">
-    
+    <h1 class="text-center m-5">Template Driven Form</h1>
+    <div class="main">
+        <h1 class="text-center">Sign in</h1>
+        <form #forms="ngForm" (ngSubmit)="forms.valid&&signinSubmit()">
+           <input type="email" class="form-control" placeholder="Email" name="email" #Email="ngModel" [(ngModel)]="signin.email" required="required" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+           <small class="text-danger" *ngIf="forms.submitted&&Email.errors&&Email.errors['required']">Email is Required</small>
+           <small class="text-danger" *ngIf="forms.submitted&&Email.errors&&Email.errors['pattern']">Invalid Email Format</small>
+
+           <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="signin.password" required="required" pattern="[a-zA-z]{4,6}">
+           <small class="text-danger" *ngIf="forms.submitted&&password.errors&&password.errors['required']">Password is Required</small>
+           <small class="text-danger" *ngIf="forms.submitted&&password.errors&&password.errors['pattern']">Password is Required</small>
+           
+           
+           <input type="password" class="form-control" placeholder="Confirm Password" name="confirm" #confirm_password="ngModel" [(ngModel)]="signin.confirm_password" required="required">
+           <small class="text-danger" *ngIf="forms.submitted&&confirm_password.errors&&confirm_password.errors['required']">Confirm Password is Required</small>
+
+           <input type="submit" value="Submit" class="btn btn-success text-center">
+        </form>
     </div>
 </body>
 </html>
- -->
-
-
-<!-- <form #f="ngForm" (ngSubmit)="f.valid&&onsubmit()">
-    <input type="text" name="username" placeholder="Usename" class="form-control" required="required"  [(ngModel)]="data.username" #t1="ngModel">
-    <label class="text-danger" *ngIf="f.submitted&&t1.errors&&t1.errors['required']">UserName Is required</label>
-    <br>
-
-    <input type="text" name="phone" placeholder="Phone" class="form-control" required="required" [(ngModel)]="data.phone" #t2="ngModel" pattern="[7-9]{1}[0-9]{9}">
-    <label class="text-danger" *ngIf="f.submitted&&t2.errors&&t2.errors['required']">phone required</label>
-    <label class="text-danger" *ngIf="f.submitted&&t2.errors&&t2.errors['pattern']">10 digit</label>
-
-    <br>
-    <input type="password" name="password" placeholder="Password" class="form-control" required="required" [(ngModel)]="data.password" #t3="ngModel" >
-    <label class="text-danger" *ngIf="f.submitted&&t3.errors&&t3.errors['required']">password required</label>
-    <br>
-
-    <input type="email" name="email" placeholder="Email" class="form-control" required="required" [(ngModel)]="data.email" #t4="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-    <label class="text-danger" *ngIf="f.submitted&&t4.errors&&t4.errors['required']">email required</label>
-<label class="text-danger" *ngIf="f.submitted&&t4.errors&&t4.errors['pattern']">email format</label>
-    <br>
-
-    <input type="button" value="Submit" class="btn btn-primary">
-</form> -->
-
-
-<div class="main-content">
-<form #f="ngForm" (ngSubmit)="f.valid&&onsubmit()"> 
-    <input type="text" name="username" placeholder="username" class="form-control" required="required" #t1="ngModel" [(ngModel)]="data.username" > 
-    <label class="text-danger" *ngIf="f.submitted&&t1.errors&&t1.errors['required']">first name required</label>
-
-
-    <input type="text" name="password" placeholder="password" class="form-control" required #t2="ngModel" [(ngModel)]="data.password"> 
-    <label class="text-danger" *ngIf="f.submitted&&t2.errors&&t2.errors['required']">password required</label>
-
-    <input type="number" name="phone" placeholder="phone" class="form-control" required #t3="ngModel" [(ngModel)]="data.phone" pattern="[7-9]{1}[0-9]{9}" maxlength="10"> 
-    <label class="text-danger" *ngIf="f.submitted&&t3.errors&&t3.errors['required']">phone required</label>
-    <label class="text-danger" *ngIf="f.submitted&&t3.errors&&t3.errors['pattern']">10 digit</label>
-    
-
-    <input type="email" name="email" placeholder="email" class="form-control" required #t4="ngModel" [(ngModel)]="data.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
-    <label class="text-danger" *ngIf="f.submitted&&t4.errors&&t4.errors['required']">email required</label>
-    <label class="text-danger" *ngIf="f.submitted&&t4.errors&&t4.errors['pattern']">email format</label>
-    
-    
-    <!-- {{t1.value}}
-    {{t2.value}}
-    <br/> 
-    <br/>  -->
-    <button type="submit" class="btn btn-primary"> submit</button>
- </form>
-</div>
-
- <!-- {{ f.value | json }}
- <a href="/reactive">reactive</a>
- <router-outlet></router-outlet> -->
-
-
-
- <div style="margin-top: 50px;">
-<h1>template driven form</h1>
-<form #form="ngForm" (ngSubmit)="form.valid&&onsubmit1()">
-
-    <input type="text" class="form-control" placeholder="Name" name="FirstName" required [(ngModel)]="demo.Name"  #firstname="ngModel">
-    <!-- {{firstname.value}} -->
-    <label class="text-danger" *ngIf="form.submitted&& firstname.errors&&firstname.errors['required']">First Name is required</label>
-
-    <input type="text" class="form-control" placeholder="Password" name="password" required #pass="ngModel" [(ngModel)]="demo.Password">
-    <!-- {{pass.value}} -->
-    <label for="" class="text-danger" *ngIf="form.submitted&&pass.errors&&pass.errors['required']">Password is requird</label>
-
-    <input type="text" class="form-control" placeholder="email" name="email" required #email="ngModel" [(ngModel)]="demo.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-    <label for="" class="text-danger" *ngIf="form.submitted&&email.errors&&email.errors['required']">email is required</label>
-    <label for="" class="text-danger" *ngIf="form.submitted&&email.errors&&email.errors['pattern']">invalid patteern</label>
-    <div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
-</div>

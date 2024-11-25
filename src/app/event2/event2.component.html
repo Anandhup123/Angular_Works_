@@ -7,13 +7,14 @@
   <title>Document</title>
 </head>
 
-<body>
+<body style="text-align: center;">
   <!-- Two way data binding  -->
   <!-- value passing from ts=>html and html=>ts -->
   <div style="text-align: center">
     <input type="number" class="btn btn-primary" [(ngModel)]="count" /> <br /><br />
     <h3>{{ count }}</h3>
     <br />
+
     <p>!------------------------------------------------------!</p>
 
     <!-- odd or even checking -->
@@ -27,15 +28,15 @@
     <!-- form calculation -->
 
   </div>
-  <div style="margin-top: 50px; padding-top: 20px; border: 3px solid black">
+  <div style="margin-top: 50px; padding-top: 20px; border: 3px solid black" class="text-center">
     <input type="number" [(ngModel)]="calc.v1" />&nbsp;
     <input type="number" [(ngModel)]="calc.v2" /><br />
-    <br />
+    <br/>
     <input type="button" value="Sum" class="btn btn-primary" (click)="add()" />&nbsp;
     <input type="button" value="Substract" class="btn btn-success" (click)="substract()" />&nbsp;
     <input type="button" value="Multiply" class="btn btn-danger" (click)="multi()" />&nbsp;
-    <input type="button" value="Divition" class="btn btn-warning" (click)="division()" />
-    <input type="button" value="Reset" class="btn" (click)="reset()" /><br />
+    <input type="button" value="Divition" class="btn btn-warning" (click)="division()" />&nbsp;
+    <input type="button" value="Reset" class="btn btn-dark" (click)="reset()" /><br />
     <br />
     <h2 [style.color]="vcolor" [hidden]="hide">
       {{ operation }} = {{ calc.sol }}
@@ -62,12 +63,12 @@
     </h2>
   </div>
 
-  <br><br><br><br><br><br><br>
+  <br><br><br><br><br>
 
-  <input type="number" placeholder="enter something" [(ngModel)]="values"><br>
-  <button (click)="checkOddeven()">Check</button>
-  <button (click)="clearall()">Clear</button>
-  <br>{{ans}}
+
+  <div class="maindiv" [class.mydiv]="flag=='ojik'"></div>
+
+
 
 </body>
 

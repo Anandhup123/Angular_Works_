@@ -10,6 +10,18 @@ export class AppComponent {
   
 
 
+colorvalue ="green"
+
+
+
+
+
+
+
+
+
+
+
   sec1_data = {
     titlename: "ANGULAR FRONTEND TOOL",
     subtitle: "framework of java script",
@@ -49,15 +61,12 @@ export class AppComponent {
     };
     return csscode;
   }
-
-
+  name = "Anandhu"
 
 
   // condition based binding
 
   ph = 10.2;
-
-
 
   //style binding example
 

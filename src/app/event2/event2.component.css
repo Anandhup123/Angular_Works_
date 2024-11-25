@@ -1,0 +1,10 @@
+.maindiv{
+    width: 200px ;
+    height: 200px;
+    border: 4px dotted black;
+}
+
+.mydiv{
+    border: 3px solid red;
+    background-color: burlywood;
+}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Bind1Component } from './bind1/bind1.component';
@@ -30,10 +30,10 @@ import { NgifComponent } from './ngif/ngif.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,CommonModule,
     // include a import of reactive forms module 
     ReactiveFormsModule,
-    CommonModule,FormsModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

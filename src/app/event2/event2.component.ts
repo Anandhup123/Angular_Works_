@@ -164,4 +164,35 @@ export class Event2Component implements OnInit {
     this.ans = ""
     this.values=0
   }
+  
+stdName="";
+stdMark?:number;
+grade="";
+hidedata=false;
+
+ShowGrade(){
+  this.hidedata=false;
+  if(this.stdMark!>=90){
+    this.grade="A+";
+  }else if(this.stdMark!>=80){
+    this.grade="A";
+  }else{
+    this.grade="Fail"
+  }
+}
+
+clearallData(){
+this.hidedata=true;
+  this.grade=""
+  this.stdName=""
+  this.stdMark=0
+}
+
+
+
+
+
+flag="ok"
+
+
 }
